@@ -21,6 +21,6 @@
         </style>
     </head>
     <body>
-    
+        <h1>お客様検索用画面</h1>
     </body>
 </html>

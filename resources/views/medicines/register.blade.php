@@ -21,6 +21,37 @@
         </style>
     </head>
     <body>
-    
+        <h1>商品登録</h1>
+        <form action="/medicines" method="POST">
+            @csrf
+            <div class="name">
+                <h2>商品名</h2>
+                <input type="text" name="medicine[name]" placeholder="商品名" />
+            </div>
+            <div class="maker">
+                <h2>製造業</h2>
+                <input type="text" name="medicine[maker]" placeholder="製造業" />
+            </div>
+            <div class="price">
+                <h2>値段</h2>
+                <input type="number" name="medicine[price]" placeholder="値段" />
+            </div>
+            <div class="discription">
+                <h2>商品説明</h2>
+                <textarea name="medicine[discription]" placeholder="商品説明" /></textarea>
+            </div>
+            <div class="jan">
+                <h2>JANCODE</h2>
+                <input type="number" name="medicine[jancode]" placeholder="JANCODE入力" />
+            </div>
+            <div>
+                <h2>在庫</h2>
+                <input type="text" name="medicine[has_stock]" placeholder="在庫" />
+            </div>
+            <input type="submit" value="商品を登録する" />
+        </form>
+        <div class="footer">
+            <a href="/">ホームに戻る</a>
+        </div>
     </body>
 </html>
