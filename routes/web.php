@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MedicineController;  
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MedicineController::class, 'index']);
+Route::get('/medicines/register', [MedicineController::class, 'show_register']);
+Route::post('/medicines', [MedicineController::class, 'register']);
