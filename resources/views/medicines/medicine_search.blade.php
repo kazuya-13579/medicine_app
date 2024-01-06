@@ -21,6 +21,33 @@
         </style>
     </head>
     <body>
-    
+        <h1>商品一覧画面</h1>
+        <h2>検索</h2>
+        <div class="meidicines-info">
+            @foreach($medicines as $medicine)
+                <div class="medicine-info">
+                    <h2>{{ $medicine -> name }}</h2>
+                    <p>{{ $medicine -> discription }}</p>
+                    <p>{{ $medicine -> price }}</p>
+                    <p>{{ $medicine -> jancode }}</p>
+                </div>
+                <form action="/medicines/{{ $medicine -> id }}" id="form_{{ $medicine -> id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="deleteMedicine({{ $medicine -> id }})">削除する</button>
+                </form>
+            @endforeach
+        </div>
+        <a href="/medicines/register">戻る</a>
+        
+        <script>
+            function deleteMedicine(id) {
+                'use strict'
+                
+                if(confirm('削除すると復元できません \n 本当に削除しますか')){
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
     </body>
 </html>

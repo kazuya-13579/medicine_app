@@ -25,4 +25,16 @@ class MedicineController extends Controller
         // dd($input);
     }
     
+    public function show_medicine(Medicine $medicine)
+    {
+        return view('medicines.medicine_search') -> with(['medicines' => $medicine -> get()]);
+    }
+    
+    public function delete_medicine(Medicine $medicine)
+    {
+
+        $medicine -> delete();
+        return redirect('/medicines/register');
+    }
+    
 }

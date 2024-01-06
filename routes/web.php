@@ -16,3 +16,5 @@ use App\Http\Controllers\MedicineController;
 Route::get('/', [MedicineController::class, 'index']);
 Route::get('/medicines/register', [MedicineController::class, 'show_register']);
 Route::post('/medicines', [MedicineController::class, 'register']);
+Route::get('/medicines/search', [MedicineController::class, 'show_medicine']);
+Route::delete('/medicines/{medicine}', [MedicineController::class, 'delete_medicine']);
