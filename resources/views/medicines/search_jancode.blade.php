@@ -21,6 +21,15 @@
         </style>
     </head>
     <body>
-    
+        <div class="medicine-info">
+            @if(!empty($medicine))
+            <h2>{{ $medicine -> name }}</h2>
+            <p>{{ $medicine -> discription }}</p>
+            <p>{{ $medicine -> price }}</p>
+            <p>{{ $medicine -> jancode }}</p>
+            @else
+            <h2>検索結果がありませんでした</h2>
+            @endif
+        </div>
     </body>
 </html>
