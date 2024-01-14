@@ -21,29 +21,20 @@
         </style>
     </head>
     <body>
-        <h1>商品一覧画面</h1>
-        
-        <form action="/medicines/search" method="get">
-                @csrf
-                <input type="number" name="jancode" placeholder="JANCODE入力" />
-                <input type="submit" value="検索">
-        </form>
-        
         <div class="medicines-info">
-            @foreach($medicines as $medicine)
-                <div class="medicine-info">
-                    <h2>{{ $medicine -> name }}</h2>
-                    <p>{{ $medicine -> discription }}</p>
-                    <p>{{ $medicine -> price }}</p>
-                    <p>{{ $medicine -> jancode }}</p>
-                </div>
-                <form action="/medicines/{{ $medicine -> id }}" id="form_{{ $medicine -> id }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="button" onclick="deleteMedicine({{ $medicine -> id }})">削除する</button>
-                </form>
-            @endforeach
+                    <div class="medicine-info">
+                        <h2>{{ $medicine -> name }}</h2>
+                        <p>{{ $medicine -> discription }}</p>
+                        <p>{{ $medicine -> price }}</p>
+                        <p>{{ $medicine -> jancode }}</p>
+                    </div>
+                    <form action="/medicines/{{ $medicine -> id }}" id="form_{{ $medicine -> id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" onclick="deleteMedicine({{ $medicine -> id }})">削除する</button>
+                    </form>
         </div>
+        
         <a href="/medicines/register">戻る</a>
         
         <script>
