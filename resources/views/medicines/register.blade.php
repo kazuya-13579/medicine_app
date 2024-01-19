@@ -48,6 +48,14 @@
                 <h2>在庫</h2>
                 <input type="text" name="medicine[has_stock]" placeholder="在庫" />
             </div>
+            <div>
+                <h2>お薬の種類</h2>
+                <select name="medicine[category_id]">
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <input type="submit" value="商品を登録する" />
         </form>
         <div class="footer">

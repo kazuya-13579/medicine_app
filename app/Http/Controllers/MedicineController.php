@@ -4,17 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Medicine;
+use App\Models\Category;
 
 class MedicineController extends Controller
 {
-    public function index()
+    // public function show_customer_view(Medicine $medicine)
+    // {
+    //     return view('medicines.customer')->with(['medicines'=>$medicine->getMedicine()]);
+    //     return view('medicines.index')->with(['medicine'=>$medicine->getMedicine()]);
+        
+    // }
+    
+    public function show_customer_view(Category $category)
     {
-        return view('medicines.customer');
+        return view('medicines.customer')->with(['categories'=>$category->get()]);
     }
     
-    public function show_register()
+    
+    public function show_register(Category $category)
     {
-        return view('medicines.register');
+        return view('medicines.register')->with(['categories'=>$category->get()]);
     }
     
     public function register(Request $request, Medicine $medicine)
@@ -60,4 +69,5 @@ class MedicineController extends Controller
         return view('medicines.search_jancode') -> with(['medicine' => $result]);
         
     }
+    
 }

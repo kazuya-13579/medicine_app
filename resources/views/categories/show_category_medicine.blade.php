@@ -21,6 +21,13 @@
         </style>
     </head>
     <body>
-    
+        <h1>お薬一覧</h1>
+        <div>
+            @foreach($medicines as $medicine)
+                <h2>{{ $medicine->name }}</h2>
+                <p>{{ $medicine->discription }}</p>
+                <p>{{ $medicine->price }}</p>
+            @endforeach
+        </div>
     </body>
 </html>
