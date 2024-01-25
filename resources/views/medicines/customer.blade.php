@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="{{ secure_asset('/css/style.css') }}">
 
         <!-- Styles -->
         <style>
@@ -21,10 +23,19 @@
         </style>
     </head>
     <body>
-        <h1>お客様検索用画面</h1>
-        <div class="category">
+        <h1>検索画面</h1>
+        <div class="search">
+                <form>
+                        @csrf
+                        <input type="number" name="jancode" placeholder="JANCODE入力" />
+                        <input type="submit" value="検索" class="search-button">
+                </form>
+        </div>
+        <div class="medicines-info category">
             @foreach($categories as $category)
+            <div class="category-child">
                 <a href="/categories/{{ $category->id }}">{{ $category->name }}</a>
+            </div>
             @endforeach
         </div>
     </body>

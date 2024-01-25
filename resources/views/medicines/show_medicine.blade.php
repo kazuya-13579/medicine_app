@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="{{ secure_asset('/css/style.css') }}">
 
         <!-- Styles -->
         <style>
@@ -21,21 +23,30 @@
         </style>
     </head>
     <body>
+        <h1>登録されました</h1>
         <div class="medicines-info">
-                    <div class="medicine-info">
+                    <div class="medicines">
                         <h2>{{ $medicine -> name }}</h2>
+                        <p>説明</p>
                         <p>{{ $medicine -> discription }}</p>
-                        <p>{{ $medicine -> price }}</p>
+                        <p>{{ $medicine -> price }}円</p>
                         <p>{{ $medicine -> jancode }}</p>
                     </div>
-                    <form action="/medicines/{{ $medicine -> id }}" id="form_{{ $medicine -> id }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="button" onclick="deleteMedicine({{ $medicine -> id }})">削除する</button>
-                    </form>
+                    
         </div>
         
-        <a href="/medicines/register">戻る</a>
+        
+        <div class="delete-backHome">
+            <form action="/medicines/{{ $medicine -> id }}" id="form_{{ $medicine -> id }}" method="post" class="delete">
+                            @csrf
+                            @method('DELETE')
+                            <button type="button" onclick="deleteMedicine({{ $medicine -> id }})">削除する</button>
+            </form>
+            
+            <div class="home-button">
+                <a href="/medicines/register">ホームに戻る</a>
+            </div>
+        </div>
         
         <script>
             function deleteMedicine(id) {

@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="{{ secure_asset('/css/style.css') }}">
 
         <!-- Styles -->
         <style>
@@ -23,28 +25,32 @@
     <body>
         <h1>商品一覧画面</h1>
         
-        <form action="/medicines/search" method="get">
-                @csrf
-                <input type="number" name="jancode" placeholder="JANCODE入力" />
-                <input type="submit" value="検索">
-        </form>
+        <div class="search">
+            <form action="/medicines/search" method="get" class="search-jancode">
+                    @csrf
+                    <input type="number" name="jancode" placeholder="JANCODE入力" />
+                    <input type="submit" value="検索" class="search-button">
+            </form>
+            <a href="/medicines/register">戻る</a>
+        </div>
         
         <div class="medicines-info">
             @foreach($medicines as $medicine)
-                <div class="medicine-info">
-                    <h2>{{ $medicine -> name }}</h2>
-                    <p>{{ $medicine -> discription }}</p>
-                    <p>{{ $medicine -> price }}</p>
-                    <p>{{ $medicine -> jancode }}</p>
-                </div>
-                <form action="/medicines/{{ $medicine -> id }}" id="form_{{ $medicine -> id }}" method="post">
+            <div class="medicines">
+                <h2>{{ $medicine -> name }}</h2>
+                <p>説明</p>
+                <p>{{ $medicine -> discription }}</p>
+                <p>{{ $medicine -> price }}円</p>
+                <p>{{ $medicine -> jancode }}</p>
+                <form action="/medicines/{{ $medicine -> id }}" id="form_{{ $medicine -> id }}" method="post"  class="delete">
                     @csrf
                     @method('DELETE')
                     <button type="button" onclick="deleteMedicine({{ $medicine -> id }})">削除する</button>
                 </form>
+            </div>
             @endforeach
         </div>
-        <a href="/medicines/register">戻る</a>
+        
         
         <script>
             function deleteMedicine(id) {

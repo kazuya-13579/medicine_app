@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Medicine;
 use App\Models\Category;
+use App\Http\Requests\MedicineRequest;
 
 class MedicineController extends Controller
 {
@@ -26,7 +27,7 @@ class MedicineController extends Controller
         return view('medicines.register')->with(['categories'=>$category->get()]);
     }
     
-    public function register(Request $request, Medicine $medicine)
+    public function register(MedicineRequest $request, Medicine $medicine)
     {
         $input = $request['medicine'];
         $medicine -> fill($input) -> save();

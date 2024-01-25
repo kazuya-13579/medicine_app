@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="{{ secure_asset('/css/style.css') }}">
 
         <!-- Styles -->
         <style>
@@ -21,15 +23,18 @@
         </style>
     </head>
     <body>
-        <div class="medicine-info">
+        <div class="medicines">
             @if(!empty($medicine))
             <h2>{{ $medicine -> name }}</h2>
             <p>{{ $medicine -> discription }}</p>
-            <p>{{ $medicine -> price }}</p>
+            <p>{{ $medicine -> price }}円</p>
             <p>{{ $medicine -> jancode }}</p>
             @else
             <h2>検索結果がありませんでした</h2>
             @endif
+        </div>
+        <div class="home-button">
+                <a href="/medicines/show">ホームに戻る</a>
         </div>
     </body>
 </html>
