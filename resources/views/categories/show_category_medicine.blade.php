@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="{{ secure_asset('/css/style.css') }}">
 
         <!-- Styles -->
         <style>
@@ -22,12 +24,18 @@
     </head>
     <body>
         <h1>お薬一覧</h1>
-        <div>
+        <div class="medicines-info">
             @foreach($medicines as $medicine)
+            <div class="medicines">
                 <h2>{{ $medicine->name }}</h2>
+                <p>説明</p>
                 <p>{{ $medicine->discription }}</p>
-                <p>{{ $medicine->price }}</p>
+                <p>{{ $medicine->price }}円</p>
+            </div>
             @endforeach
+        </div>
+        <div class="home-button">
+            <a href="/">ホームに戻る</a>
         </div>
     </body>
 </html>

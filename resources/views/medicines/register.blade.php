@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="{{ secure_asset('/css/style.css') }}">
 
         <!-- Styles -->
         <style>
@@ -22,44 +24,52 @@
     </head>
     <body>
         <h1>商品登録</h1>
-        <form action="/medicines" method="POST">
-            @csrf
-            <div class="name">
-                <h2>商品名</h2>
-                <input type="text" name="medicine[name]" placeholder="商品名" />
-            </div>
-            <div class="maker">
-                <h2>製造業</h2>
-                <input type="text" name="medicine[maker]" placeholder="製造業" />
-            </div>
-            <div class="price">
-                <h2>値段</h2>
-                <input type="number" name="medicine[price]" placeholder="値段" />
-            </div>
-            <div class="discription">
-                <h2>商品説明</h2>
-                <textarea name="medicine[discription]" placeholder="商品説明" /></textarea>
-            </div>
-            <div class="jan">
-                <h2>JANCODE</h2>
-                <input type="number" name="medicine[jancode]" placeholder="JANCODE入力" />
-            </div>
-            <div>
-                <h2>在庫</h2>
-                <input type="text" name="medicine[has_stock]" placeholder="在庫" />
-            </div>
-            <div>
-                <h2>お薬の種類</h2>
-                <select name="medicine[category_id]">
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <input type="submit" value="商品を登録する" />
-        </form>
-        <div class="footer">
-            <a href="/">ホームに戻る</a>
+        <div class="register">
+            <form action="/medicines" method="POST">
+                @csrf
+                <div class="name">
+                    <h2>商品名</h2>
+                    <input type="text" name="medicine[name]" placeholder="商品名" />
+                    <p class="error">{{ $errors->first('medicine.name') }}</p>
+                </div>
+                <div class="maker">
+                    <h2>製造業</h2>
+                    <input type="text" name="medicine[maker]" placeholder="製造業" />
+                    <p class="error">{{ $errors->first('medicine.maker') }}</p>
+                </div>
+                <div class="price">
+                    <h2>値段</h2>
+                    <input type="number" name="medicine[price]" placeholder="値段"  />円
+                    <p class="error">{{ $errors->first('medicine.price') }}</p>
+                </div>
+                <div class="discription">
+                    <h2>商品説明</h2>
+                    <textarea name="medicine[discription]" placeholder="商品説明" /></textarea>
+                    <p class="error">{{ $errors->first('medicine.discription') }}</p>
+                </div>
+                <div class="jan">
+                    <h2>JANCODE</h2>
+                    <input type="number" name="medicine[jancode]" placeholder="JANCODE入力" />
+                    <p class="error">{{ $errors->first('medicine.jancode') }}</p>
+                </div>
+                <div>
+                    <h2>在庫</h2>
+                    <input type="text" name="medicine[has_stock]" placeholder="在庫" />
+                    <p class="error">{{ $errors->first('medicine.has_stock') }}</p>
+                </div>
+                <div>
+                    <h2>お薬の種類</h2>
+                    <select name="medicine[category_id]">
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                    <p class="error">{{ $errors->first('medicine.category_id') }}</p>
+                </div>
+                <div class="register-button">
+                    <input type="submit" value="商品を登録する" class="register-button-child"/>
+                </div>
+            </form>
         </div>
     </body>
 </html>
