@@ -20,9 +20,9 @@ return new class extends Migration
             $table->integer('price');
             $table->string('discription',500);
             $table->bigInteger('jancode');
-            $table->boolean('has_stock')->default(0);
-            // $table->timestamps();
-            // $table->softDeletes();
+            // $table->boolean('has_stock')->default(0);
+            $table->timestamps();
+            $table->softDeletes();
             
         });
     }
