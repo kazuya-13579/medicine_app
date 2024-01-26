@@ -24,7 +24,7 @@ class MedicineSeeder extends Seeder
             'jancode'=>'4987306045149',
             // 'created_at' => new DateTime(),
             // 'updated_at' => new DateTime(),
-            'has_stock'=>true,
+            // 'has_stock'=>true,
             'category_id'=>'1',
             ]);
     }

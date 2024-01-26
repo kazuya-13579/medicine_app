@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
-            MedicineSeeder::class,
             CategorySeeder::class,
+            MedicineSeeder::class,
         ]);
     }
 }
