@@ -22,7 +22,7 @@
             }
         </style>
     </head>
-    <body>
+    <x-app-layout>
         <h1>商品一覧画面</h1>
         
         <div class="search">
@@ -61,5 +61,5 @@
                 }
             }
         </script>
-    </body>
+    </x-app-layout>
 </html>

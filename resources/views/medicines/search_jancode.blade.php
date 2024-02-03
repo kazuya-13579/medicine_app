@@ -22,7 +22,7 @@
             }
         </style>
     </head>
-    <body>
+    <x-app-layout>
         <div class="medicines">
             @if(!empty($medicine))
             <h2>{{ $medicine -> name }}</h2>
@@ -36,5 +36,5 @@
         <div class="home-button">
                 <a href="/medicines/show">ホームに戻る</a>
         </div>
-    </body>
+    </x-app-layout>
 </html>

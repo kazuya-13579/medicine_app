@@ -22,7 +22,23 @@
             }
         </style>
     </head>
-    <body>
+    <div class="view-login-name">
+        <p>現在ログイン中です。</p>
+    </div>
+    <x-app-layout>
+        <div class="menu">
+            <form method="get" action="{{ route('show_customer_view') }}" class="logOut-btn">
+                @csrf
+
+                <x-dropdown-link class="logOut" :href="route('show_customer_view')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                </x-dropdown-link>
+            </form>  
+            <a href="{{ route('admin.register') }}">登録する</a>
+            <a href="{{ route('show_medicine') }}">商品検索</a>
+　      </div>
         <h1>商品登録</h1>
         <div class="register">
             <form action="/medicines" method="POST">
@@ -52,11 +68,7 @@
                     <input type="number" name="medicine[jancode]" placeholder="JANCODE入力" />
                     <p class="error">{{ $errors->first('medicine.jancode') }}</p>
                 </div>
-                <div>
-                    <h2>在庫</h2>
-                    <input type="text" name="medicine[has_stock]" placeholder="在庫" />
-                    <p class="error">{{ $errors->first('medicine.has_stock') }}</p>
-                </div>
+                
                 <div>
                     <h2>お薬の種類</h2>
                     <select name="medicine[category_id]">
@@ -71,5 +83,5 @@
                 </div>
             </form>
         </div>
-    </body>
+    </x-app-layout>
 </html>
