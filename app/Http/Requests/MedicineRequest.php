@@ -29,7 +29,6 @@ class MedicineRequest extends FormRequest
             'medicine.price'=>'required|integer',
             'medicine.discription'=>'required|string|max:300',
             'medicine.jancode'=>'required|integer',
-            'medicine.has_stock'=>'required|integer',
             'medicine.category_id'=>'required',
         ];
     }

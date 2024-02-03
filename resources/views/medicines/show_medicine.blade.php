@@ -22,7 +22,7 @@
             }
         </style>
     </head>
-    <body>
+    <x-app-layout>
         <h1>登録されました</h1>
         <div class="medicines-info">
                     <div class="medicines">
@@ -57,5 +57,5 @@
                 }
             }
         </script>
-    </body>
+    </x-app-layout>
 </html>

@@ -22,7 +22,7 @@
             }
         </style>
     </head>
-    <body>
+    <x-app-layout>
         <h1>検索画面</h1>
         <div class="search">
                 <form>
@@ -38,5 +38,6 @@
             </div>
             @endforeach
         </div>
-    </body>
+        
+    </x-app-layout>
 </html>
