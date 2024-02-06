@@ -40,7 +40,7 @@ Route::get('/medicines/search', [MedicineController::class, 'search_jancode'])->
 Route::get('/medicines/search_medicine', [MedicineController::class, 'search_medicine'])->name('search_medicine');
 Route::get('/medicines/{medicine}', [MedicineController::class, 'show_medicine_detail'])->name('show_medicine_detail');
 Route::get('/categories/{category}', [CategoryController::class, 'category_list'])->name('category_list');
-Route::post('/medicines', [MedicineController::class, 'register'])->name('register');
+Route::post('/medicines', [MedicineController::class, 'register'])->name('register_medicine');
 Route::delete('/medicines/{medicine}', [MedicineController::class, 'delete_medicine'])->name('delete_medicine');
 
 Route::middleware('auth')->group(function () {

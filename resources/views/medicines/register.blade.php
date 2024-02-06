@@ -40,7 +40,7 @@
 　      </div>
         <h1>商品登録</h1>
         <div class="register">
-            <form action="/medicines" method="POST">
+            <form action="{{ route('register_medicine') }}" method="POST">
                 @csrf
                 <div class="name">
                     <h2>商品名</h2>
