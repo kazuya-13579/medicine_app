@@ -37,6 +37,7 @@ Route::get('/', [MedicineController::class, 'show_customer_view'])->name('show_c
 Route::get('/medicines/register', [MedicineController::class, 'show_register'])->name('show_register');
 Route::get('/medicines/show', [MedicineController::class, 'show_medicine'])->name('show_medicine');
 Route::get('/medicines/search', [MedicineController::class, 'search_jancode'])->name('search_jancode');//検索機能の実装
+Route::get('/medicines/search_medicine', [MedicineController::class, 'search_medicine'])->name('search_medicine');
 Route::get('/medicines/{medicine}', [MedicineController::class, 'show_medicine_detail'])->name('show_medicine_detail');
 Route::get('/categories/{category}', [CategoryController::class, 'category_list'])->name('category_list');
 Route::post('/medicines', [MedicineController::class, 'register'])->name('register');
