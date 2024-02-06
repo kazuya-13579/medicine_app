@@ -1,6 +1,8 @@
 /*共通の記述*/
 h1 {
     text-align: center;
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
 }
 
 .medicines-info {
@@ -24,6 +26,7 @@ input, select, textarea {
 
 h2 {
     width: 100%;
+    text-align: center;
     border-bottom: 1px solid;
 }
 
@@ -115,6 +118,14 @@ textarea {
 
 .register > form > div {
     margin-bottom: 70px;
+}
+
+.logOut {
+    width: 150px !important;
+}
+
+.logOut > p {
+    text-align: center;
 }
 
 /*show_medicineの記述*/

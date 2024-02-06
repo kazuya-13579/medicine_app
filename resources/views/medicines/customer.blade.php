@@ -23,11 +23,12 @@
         </style>
     </head>
     <x-app-layout>
+        <a class="user-register" href="{{ route('admin.register') }}">ユーザーを登録する</a>      
         <h1>検索画面</h1>
         <div class="search">
-                <form>
+                <form method="get" action="/medicines/search_medicine">
                         @csrf
-                        <input type="number" name="jancode" placeholder="JANCODE入力" />
+                        <input type="text" name="search" placeholder="フリーワード検索" />
                         <input type="submit" value="検索" class="search-button">
                 </form>
         </div>
@@ -38,6 +39,5 @@
             </div>
             @endforeach
         </div>
-        
     </x-app-layout>
 </html>

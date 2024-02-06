@@ -72,4 +72,14 @@ class MedicineController extends Controller
         
     }
     
+    public function search_medicine(Medicine $medicine, Request $request)
+    {
+        $search = $request->input('search');
+        $result="";
+        
+        if(!empty($search)) {
+            $result=$medicine->where('name', 'like', "%{$search}%")->get();
+        } 
+        return view('medicines.search_medicines') -> with(['medicines' => $result]);
+    }
 }
