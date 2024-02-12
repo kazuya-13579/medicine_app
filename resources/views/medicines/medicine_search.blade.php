@@ -23,22 +23,22 @@
         </style>
     </head>
     <x-app-layout>
-        <h1>商品一覧画面</h1>
-        
         <div class="search">
-            <form action="/medicines/search" method="get" class="search-jancode">
-                    @csrf
-                    <input type="number" name="jancode" placeholder="JANCODE入力" />
-                    <input type="submit" value="検索" class="search-button">
-            </form>
+            <h1>商品一覧画面</h1>
             <a href="/medicines/register">戻る</a>
         </div>
+        
+        <form action="/medicines/search" method="get" class="search-jancode">
+            @csrf
+            <input type="number" name="jancode" placeholder="JANCODE入力" />
+            <input type="submit" value="検索" class="search-button">
+        </form>
+            
         
         <div class="medicines-info">
             @foreach($medicines as $medicine)
             <div class="medicines">
                 <h2>{{ $medicine -> name }}</h2>
-                <p>説明</p>
                 <p>{{ $medicine -> discription }}</p>
                 <p>{{ $medicine -> price }}円</p>
                 <p>{{ $medicine -> jancode }}</p>

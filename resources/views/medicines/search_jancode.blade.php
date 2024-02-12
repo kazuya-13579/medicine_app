@@ -23,16 +23,20 @@
         </style>
     </head>
     <x-app-layout>
-        <div class="medicines">
-            @if(!empty($medicine))
-            <h2>{{ $medicine -> name }}</h2>
-            <p>{{ $medicine -> discription }}</p>
-            <p>{{ $medicine -> price }}円</p>
-            <p>{{ $medicine -> jancode }}</p>
-            @else
-            <h2>検索結果がありませんでした</h2>
-            @endif
+        <div class="medicines-pearent">
+            
+                @if(!empty($medicine))
+                <div class="medicines">
+                <h2>{{ $medicine -> name }}</h2>
+                <p>{{ $medicine -> discription }}</p>
+                <p>{{ $medicine -> price }}円</p>
+                <p>{{ $medicine -> jancode }}</p>
+                </div>
+                @else
+                <h2>検索結果がありませんでした</h2>
+                @endif
         </div>
+        
         <div class="home-button">
                 <a href="/medicines/show">ホームに戻る</a>
         </div>

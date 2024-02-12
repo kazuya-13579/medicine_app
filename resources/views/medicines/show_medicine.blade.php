@@ -23,16 +23,18 @@
         </style>
     </head>
     <x-app-layout>
-        <h1>登録されました</h1>
-        <div class="medicines-info">
-                    <div class="medicines">
-                        <h2>{{ $medicine -> name }}</h2>
-                        <p>説明</p>
-                        <p>{{ $medicine -> discription }}</p>
-                        <p>{{ $medicine -> price }}円</p>
-                        <p>{{ $medicine -> jancode }}</p>
-                    </div>
-                    
+        <div class="medicines-info-pearent">
+            <div class="h1">
+                <h1>登録されました</h1>
+            </div>
+            <div class="medicines-info">
+                        <div class="medicines">
+                            <h2>{{ $medicine -> name }}</h2>
+                            <p>{{ $medicine -> discription }}</p>
+                            <p>{{ $medicine -> price }}円</p>
+                            <p>{{ $medicine -> jancode }}</p>
+                        </div>
+            </div>
         </div>
         
         
@@ -42,10 +44,10 @@
                             @method('DELETE')
                             <button type="button" onclick="deleteMedicine({{ $medicine -> id }})">削除する</button>
             </form>
-            
-            <div class="home-button">
-                <a href="/medicines/register">ホームに戻る</a>
-            </div>
+        </div>
+        
+        <div class="home-button">
+            <a href="/medicines/register">ホームに戻る</a>
         </div>
         
         <script>

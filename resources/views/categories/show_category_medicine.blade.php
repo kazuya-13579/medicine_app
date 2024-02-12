@@ -23,12 +23,13 @@
         </style>
     </head>
     <body>
-        <h1>お薬一覧</h1>
+        <div class="h1">
+            <h1>お薬一覧</h1>
+        </div>
         <div class="medicines-info">
             @foreach($medicines as $medicine)
             <div class="medicines">
                 <h2>{{ $medicine->name }}</h2>
-                <p>説明</p>
                 <p>{{ $medicine->discription }}</p>
                 <p>{{ $medicine->price }}円</p>
             </div>

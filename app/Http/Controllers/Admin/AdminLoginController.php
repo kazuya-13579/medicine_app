@@ -29,6 +29,7 @@ class AdminLoginController extends Controller
 
         return back()->withErrors([
             'login' => ['ログインに失敗しました'],
+            'error_msg' => ['入力内容に誤りがあります'],
         ]);
     }
 }

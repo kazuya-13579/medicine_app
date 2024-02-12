@@ -22,10 +22,10 @@
             }
         </style>
     </head>
-    <div class="view-login-name">
-        <p>現在ログイン中です。</p>
-    </div>
     <x-app-layout>
+        <div class="view-login-name">
+            <p>現在ログイン中です。</p>
+        </div>
         <div class="menu">
             <form method="get" action="{{ route('show_customer_view') }}" class="logOut-btn">
                 
@@ -38,38 +38,40 @@
             <a href="{{ route('admin.register') }}">ユーザーを登録する</a>
             <a href="{{ route('show_medicine') }}">商品検索</a>
 　      </div>
-        <h1>商品登録</h1>
+　      <div class="h1">
+            <h1>商品登録</h1>
+        </div>
         <div class="register">
             <form action="{{ route('register_medicine') }}" method="POST">
                 @csrf
                 <div class="name">
-                    <h2>商品名</h2>
+                    <h2 class="register-h2">商品名</h2>
                     <input type="text" name="medicine[name]" placeholder="商品名" />
                     <p class="error">{{ $errors->first('medicine.name') }}</p>
                 </div>
                 <div class="maker">
-                    <h2>製造業</h2>
+                    <h2 class="register-h2">製造業</h2>
                     <input type="text" name="medicine[maker]" placeholder="製造業" />
                     <p class="error">{{ $errors->first('medicine.maker') }}</p>
                 </div>
                 <div class="price">
-                    <h2>値段</h2>
+                    <h2 class="register-h2">値段</h2>
                     <input type="number" name="medicine[price]" placeholder="値段"  />円
                     <p class="error">{{ $errors->first('medicine.price') }}</p>
                 </div>
                 <div class="discription">
-                    <h2>商品説明</h2>
+                    <h2 class="register-h2">商品説明</h2>
                     <textarea name="medicine[discription]" placeholder="商品説明" /></textarea>
                     <p class="error">{{ $errors->first('medicine.discription') }}</p>
                 </div>
                 <div class="jan">
-                    <h2>JANCODE</h2>
+                    <h2 class="register-h2">JANCODE</h2>
                     <input type="number" name="medicine[jancode]" placeholder="JANCODE入力" />
                     <p class="error">{{ $errors->first('medicine.jancode') }}</p>
                 </div>
                 
                 <div>
-                    <h2>お薬の種類</h2>
+                    <h2 class="register-h2">お薬の種類</h2>
                     <select name="medicine[category_id]">
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>

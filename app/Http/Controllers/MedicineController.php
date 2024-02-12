@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Http\Requests\MedicineRequest;
 
 
+
 class MedicineController extends Controller
 {
     // public function show_customer_view(Medicine $medicine)

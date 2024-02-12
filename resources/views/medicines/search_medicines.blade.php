@@ -23,25 +23,25 @@
         </style>
     </head>
     <x-app-layout>
-            @if(!empty($medicines))
+        <div class="medicines-pearent">
+            @if($medicines->isNotEmpty())
             @foreach($medicines as $medicine)
-            <div class="medicines"> 
-                <h2>{{ $medicine -> name }}</h2>
-                <p>{{ $medicine -> discription }}</p>
-                <p>{{ $medicine -> price }}円</p>
-                <p>{{ $medicine -> jancode }}</p>
-            </div>
+            
+                <div class="medicines"> 
+                    <h2>{{ $medicine -> name }}</h2>
+                    <p>{{ $medicine -> discription }}</p>
+                    <p>{{ $medicine -> price }}円</p>
+                </div>
+            
             @endforeach
-            <h2>検索結果がありませんでした</h2>
-            <div class="home-button">
-                    <a href="/">ホームに戻る</a>
-            </div>
             @else
-            <h2>検索結果がありませんでした</h2>
-            <div class="home-button">
-                    <a href="/">ホームに戻る</a>
+            <div class="no-medicine">
+                <h2>検索結果がありませんでした</h2>
             </div>
             @endif
+            <div class="home-button">
+                    <a href="/">ホームに戻る</a>
+            </div>
         </div>
     </x-app-layout>
 </html>
