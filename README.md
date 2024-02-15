@@ -2,6 +2,7 @@
 
 ## サービスのURLはこちらから！
 <a href="https://kazuyaweb.com">https://kazuyaweb.com</a>
+![スクリーンショット 2024-02-15 100725](https://github.com/kazuya-13579/medicine_app/assets/145267956/b5ca9dda-ff35-4b03-b9e2-928ffa0b51da)
 
 
 ## このサービスを作成した経緯
